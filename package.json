@@ -1,0 +1,58 @@
+{
+  "name": "zafar-bot",
+  "version": "2.2.0",
+  "description": "WhatsApp service powered by Baileys",
+  "main": "index.js",
+  "type": "commonjs",
+  "scripts": {
+    "start": "node --expose-gc index.js",
+    "selftest": "npm run test:preflight",
+    "test:structure": "node --test scripts/test-structure.js",
+    "test:preflight": "node --test scripts/test-preflight.js scripts/test-readiness.js",
+    "test:media": "node --test scripts/test-social-media.js scripts/test-dramabox.js scripts/test-command-removal.js scripts/test-public-media.js scripts/test-music-sources.js scripts/test-embed-sources.js scripts/test-xjx-media.js scripts/test-stage.js",
+    "test:bugfixes": "node --test scripts/test-bugfixes.js",
+    "test:sessions": "node --test scripts/test-structure.js scripts/test-sessions.js scripts/test-account-routing.js scripts/test-pair-command.js scripts/test-service-startup.js",
+    "test:workers": "node --test scripts/test-workers.js",
+    "test:storage": "node --test scripts/test-storage.js",
+    "test": "npm run -s test:structure && npm run -s test:preflight && npm run -s test:media && npm run -s test:bugfixes && npm run -s test:sessions && npm run -s test:workers && npm run -s test:storage"
+  },
+  "keywords": [
+    "whatsapp bot",
+    "baileys"
+  ],
+  "author": "",
+  "license": "MIT",
+  "dependencies": {
+    "@ffmpeg-installer/ffmpeg": "^1.1.0",
+    "@whiskeysockets/baileys": "7.0.0-rc14",
+    "axios": "^1.7.2",
+    "ipaddr.js": "^2.5.0",
+    "node-webpmux": "^3.1.7",
+    "pino": "^9.0.0",
+    "qrcode-terminal": "^0.12.0",
+    "tough-cookie": "^6.0.2",
+    "yt-search": "^2.13.1"
+  },
+  "engines": {
+    "node": ">=22.13.0"
+  },
+  "optionalDependencies": {
+    "webtorrent": "^3.0.21"
+  },
+  "allowScripts": {
+    "@ffmpeg-installer/linux-arm64": true,
+    "@ffmpeg-installer/linux-x64": true,
+    "@whiskeysockets/baileys": true,
+    "node-datachannel": true,
+    "ip-set": false,
+    "bufferutil": false,
+    "utf-8-validate": false,
+    "utp-native": false,
+    "protobufjs": false
+  },
+  "overrides": {
+    "redstar": {
+      "minimatch": "^3.1.5"
+    }
+  }
+}
